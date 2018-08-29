@@ -15,7 +15,6 @@ input[type=text]{
     width: 200px;
     margin-left: 7.5%;
     margin-bottom: 20px;
-
 }
 input[type=checkbox]{
     margin-left: 7.5%;
@@ -23,7 +22,7 @@ input[type=checkbox]{
 .button-conteiner{
     width: 85%;
     display: flex;
-    margin: 20px auto;
+    margin: 30px auto;
 }
 button{
     margin: 0 auto;
