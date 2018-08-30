@@ -1,4 +1,4 @@
-
+//
 // var xhr = new XMLHttpRequest();
 // xhr.addEventListener("readystatechange", function () {
 //     if (this.readyState === 4) {
@@ -17,7 +17,7 @@ function firstOut(){
     promise
         .then(function(res) {
         var result = res.data.filter((str)=> str.length > document.querySelector('input[type=text]').value);
-        document.querySelector('.output p').innerHTML = result;
+        document.querySelector('.output p').innerHTML = result.length+' совпадений '+'<br>'+result;
         }).catch((error)=>document.querySelector('.output p').innerHTML = error);
 }
 
@@ -26,16 +26,17 @@ function secondOut(){
    if(document.querySelector('input[type=checkbox]').checked){
        promise
            .then(function(res) {
+               var result = res.data.filter((str)=> str.indexOf(document.querySelector('input[type=text]').value) > -1);
+               document.querySelector('.output p').innerHTML = result.length+' совпадений '+'<br>'+result;
+           }).catch((error)=>document.querySelector('.output p').innerHTML = error);
+
+   } else{
+       promise
+           .then(function(res) {
                var result = res.data.filter(function(str){
 
                    return str.toLowerCase().indexOf(document.querySelector('input[type=text]').value.toLowerCase()) > -1
                });
-               document.querySelector('.output p').innerHTML = result.length+' совпадений '+'<br>'+result;;
-           }).catch((error)=>document.querySelector('.output p').innerHTML = error);
-   } else{
-       promise
-           .then(function(res) {
-               var result = res.data.filter((str)=> str.indexOf(document.querySelector('input[type=text]').value) > -1);
                document.querySelector('.output p').innerHTML = result.length+' совпадений '+'<br>'+result;
            }).catch((error)=>document.querySelector('.output p').innerHTML = error);
    }
