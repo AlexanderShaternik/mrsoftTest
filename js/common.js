@@ -1,4 +1,4 @@
-//запрос по адресу http://www.mrsoft.by/data.json
+// запрос по адресу http://www.mrsoft.by/data.json
 // var xhr = new XMLHttpRequest();
 // xhr.addEventListener("readystatechange", function () {
 //     if (this.readyState === 4) {
@@ -7,11 +7,13 @@
 //     }
 // });
 // xhr.open("GET", "http://www.mrsoft.by/data.json",true);
+// // xhr.setRequestHeader("Access-Control-Allow-Origin","*")
 // xhr.send();
 
 // fetch запрос по адресу http://www.mrsoft.by/data.json
-
-let promise = fetch('http://www.mrsoft.by/data.json')
+// https://github.com/Rob--W/cors-anywhere/
+let cors_api_host = 'https://cors-anywhere.herokuapp.com/';
+let promise = fetch(cors_api_host+'http://www.mrsoft.by/data.json')
     .then(function(response) {
         return response.json();
     });
